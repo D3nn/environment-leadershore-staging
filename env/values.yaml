@@ -12,3 +12,17 @@ cleanup:
   Annotations:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
+expose:
+  config:
+    domain: 192.168.64.23.nip.io
+    exposer: Ingress
+    http: "true"
+    tlsacme: "false"
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+jenkins:
+  Servers:
+    GHE:
+    - Name: GHE
+      Url: https://github-isl-01.ca.com/api/v3/
